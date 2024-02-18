@@ -11,7 +11,7 @@ services:
       - traefik.enable=true
       - traefik.http.routers.miner.entrypoints=websecure
       - traefik.http.routers.miner.rule=Host(`miner.christianfds.dev`)
-      - traefik.http.routers.miner.tls.certresolver=leresolver
+      - traefik.http.routers.miner.tls.certresolver=letsencryptresolver
       - traefik.http.services.miner.loadbalancer.server.port=5000
     volumes:
       - /data/container/twitch-miner/analytics:/usr/src/app/analytics
