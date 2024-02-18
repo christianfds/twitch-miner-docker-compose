@@ -9,10 +9,10 @@ services:
       - TERM=xterm-256color
     labels:
       - traefik.enable=true
-      - traefik.http.routers.portainer.entrypoints=websecure
-      - traefik.http.routers.portainer.rule=Host(`miner.christianfds.dev`)
-      - traefik.http.routers.portainer.tls.certresolver=leresolver
-      - traefik.http.services.portainer.loadbalancer.server.port=5000
+      - traefik.http.routers.miner.entrypoints=websecure
+      - traefik.http.routers.miner.rule=Host(`miner.christianfds.dev`)
+      - traefik.http.routers.miner.tls.certresolver=leresolver
+      - traefik.http.services.miner.loadbalancer.server.port=5000
     volumes:
       - /data/container/twitch-miner/analytics:/usr/src/app/analytics
       - /data/container/twitch-miner/cookies:/usr/src/app/cookies
