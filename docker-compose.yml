@@ -3,6 +3,7 @@ version: "3.9"
 services:
   miner:
     image: rdavidoff/twitch-channel-points-miner-v2
+    # Actual github at: https://github.com/rdavydov/Twitch-Channel-Points-Miner-v2
     stdin_open: true
     tty: true
     environment:
