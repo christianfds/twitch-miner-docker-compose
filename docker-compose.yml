@@ -14,10 +14,16 @@ services:
       - traefik.http.routers.miner.rule=Host(`miner.christianfds.dev`)
       - traefik.http.routers.miner.tls.certresolver=letsencryptresolver
       - traefik.http.services.miner.loadbalancer.server.port=5000
+      - traefik.http.routers.whoami.middlewares=whoami-auth
+      - traefik.http.middlewares.whoami-auth.basicauth.usersfile=/users/users.u
     volumes:
       - /data/container/twitch-miner/analytics:/usr/src/app/analytics
       - /data/container/twitch-miner/cookies:/usr/src/app/cookies
       - /data/container/twitch-miner/logs:/usr/src/app/logs
       - /data/container/twitch-miner/run.py:/usr/src/app/run.py:ro
+      - /data/container/traefik/users.u:/users/users.u
     ports:
-      - "5000:5000"
+      - target: 5000
+        published: 5000
+        mode: host
+        
