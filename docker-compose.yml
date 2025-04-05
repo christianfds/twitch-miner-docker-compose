@@ -26,4 +26,9 @@ services:
       - target: 5000
         published: 5000
         mode: host
-        
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    external: true        
